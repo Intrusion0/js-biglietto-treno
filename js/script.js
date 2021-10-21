@@ -24,8 +24,6 @@ const prezzoBigliettoDecimal = Math.round((prezzoBiglietto + Number.EPSILON) * 1
 
 // Calcolo prezzo totale del viaggio e seguente Output
 let costo_totale = document.getElementById("costo_totale");
-let minorenne = document.getElementById("minorenne");
-let over_sessantacinque = document.getElementById("over_sessantacinque");
 let percentualeMinorenni;
 let percentualeOverSessantaCinque;
 let prezzoTotale;
@@ -35,17 +33,17 @@ if (age < 18) {
     percentualeMinorenni = (prezzoBigliettoDecimal * 20) / 100;
     prezzoTotale = prezzoBigliettoDecimal - percentualeMinorenni;
     prezzoTotaleDecimal = Math.round((prezzoTotale + Number.EPSILON) * 100) / 100;
-    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: ${prezzoTotaleDecimal}€. `;
-    minorenne.innerHTML = `Essendo minorenne hai usufruito del 20% di sconto`;
+    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: <strong>${prezzoTotaleDecimal}€</strong>. <br> 
+    Essendo minorenne hai usufruito del 20% di sconto`;
 } else if (age >= 65) {
     percentualeOverSessantaCinque = (prezzoBigliettoDecimal * 40) / 100;
     prezzoTotale = prezzoBigliettoDecimal - percentualeOverSessantaCinque;
     prezzoTotaleDecimal = Math.round((prezzoTotale + Number.EPSILON) * 100) / 100;
-    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: ${prezzoTotaleDecimal}€. `;
-    over_sessantacinque.innerHTML = ` Essendo over 65 hai usufruito del 40% di sconto `;
+    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: <strong>${prezzoTotaleDecimal}€</strong>. <br> 
+    Essendo over 65 hai usufruito del 40% di sconto `;
 } else {
     prezzoTotaleDecimal = prezzoBigliettoDecimal;
-    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: ${prezzoTotaleDecimal}€.`;
+    costo_totale.innerHTML = ` Il prezzo totale del viaggio è di: <strong>${prezzoTotaleDecimal}€</strong>.`;
 }
 
 // console.log("Il prezzo totale del viaggio è di: ", prezzoTotaleDecimal);
